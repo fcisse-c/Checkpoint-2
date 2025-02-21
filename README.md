@@ -65,9 +65,11 @@ Il gère la passerelle par défaut pour permettre la communication inter-réseau
 
 Q.3.3 Que signifie f0/0 et g1/0 sur l’élément B ?
 Ce sont des noms d'interfaces réseau sur le routeur :
+
 f0/0 :
 f signifie FastEthernet, une interface Ethernet avec un débit de 100 Mbps.
 0/0 indique la position du port : module 0, port 0.
+
 g1/0 :
 g signifie GigabitEthernet, une interface Ethernet avec un débit de 1 Gbps.
 1/0 indique le module 1, port 0.
