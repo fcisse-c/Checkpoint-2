@@ -10,7 +10,7 @@ Q.1.1 le ping avec les adresses IP des machines ne fonctionnent pas parceque :
  -  Vérification coté serveur:
    [![pingMarchePasCoteServeur](https://github.com/fcisse-c/Checkpoint-2/blob/main/pingMarchePasCoteServeur.png)
 
-
+# Exercice :  Modification IP client serveur 
 
 Q.1.3 Modifie la configuration réseau du client pour qu'il soit en DHCP.
 j'ai modifié le paramétrage DHCP sur le client
@@ -42,3 +42,6 @@ J'ai Configuré le client pour utiliser DHCP  en Ouvrant l'invite de commandes e
 ipconfig /all sur le client:
 
 [![IPconfig_all](https://github.com/fcisse-c/Checkpoint-2/blob/main/IPconfig_all.png)
+
+
+# Exercice 2 : Débogage de script PowerShell 
