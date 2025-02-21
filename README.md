@@ -1,4 +1,6 @@
 # Checkpoint-2
+
+# Exercice 1:  Modification IP client serveur 
 Q.1.1 le ping avec les adresses IP des machines ne fonctionnent pas parceque :
 - Problèmes de pare-feu : Les pare-feu peuvent bloquer les requêtes ping. 
 
@@ -10,7 +12,6 @@ Q.1.1 le ping avec les adresses IP des machines ne fonctionnent pas parceque :
  -  Vérification coté serveur:
    [![pingMarchePasCoteServeur](https://github.com/fcisse-c/Checkpoint-2/blob/main/pingMarchePasCoteServeur.png)
 
-# Exercice :  Modification IP client serveur 
 
 Q.1.3 Modifie la configuration réseau du client pour qu'il soit en DHCP.
 j'ai modifié le paramétrage DHCP sur le client
@@ -44,9 +45,9 @@ ipconfig /all sur le client:
 [![IPconfig_all](https://github.com/fcisse-c/Checkpoint-2/blob/main/IPconfig_all.png)
 
 
-# Exercice 2 : Débogage de script PowerShell 
 
-Exercice 3 : Vérification d'une infrastructure réseau
+
+# Exercice 3 : Vérification d'une infrastructure réseau
 
 Q.3.1 Quel est le matériel réseau A ?
 Le matériel réseau A est un switch (commutateur).
