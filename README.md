@@ -22,18 +22,23 @@ Le client ne récupère pas la 1ère adresse disponible sur la plage DHCP du ser
 
 
 - Ping coté serveur:
+- 
 [![pingMarcheCoteServeur](https://github.com/fcisse-c/Checkpoint-2/blob/main/pingMarcheCoteServeur.png)
 
 
 - Ping coté client:
+  
 [![pingMarcheCoteClient](https://github.com/fcisse-c/Checkpoint-2/blob/main/pingMarcheCoteClient.png)
 
 Q.1.4 Oui le client peut avoir l'adresse IP 172.16.10.15 en DHCP 
 Voici les manipulations à faire :
+
 [![creation_reservation](https://github.com/fcisse-c/Checkpoint-2/blob/main/creation_reservation.png)
 
 J'ai Configuré le client pour utiliser DHCP  en Ouvrant l'invite de commandes et tapant ipconfig /release suivi de ipconfig /renew pour obtenir une nouvelle adresse IP du serveur DHCP.
+
 [![IPconfig_re](https://github.com/fcisse-c/Checkpoint-2/blob/main/IPconfig_re.png)
 
 ipconfig /all sur le client:
+
 [![IPconfig_all](https://github.com/fcisse-c/Checkpoint-2/blob/main/IPconfig_all.png)
