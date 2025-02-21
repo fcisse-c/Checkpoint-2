@@ -90,3 +90,50 @@ C’est l’adresse IP du routeur (B) sur le réseau local.
 Elle permet à PC2 d’envoyer des paquets vers d’autres réseaux, notamment Internet ou d’autres sous-réseaux (comme 172.16.5.0/24).
 Lorsque PC2 veut communiquer avec une adresse IP en dehors de son réseau (10.11.0.0/16), il transmet ses paquets à cette adresse, et le routeur se charge du routage vers la destination appropriée.
 
+Q.3.6 Pour les ordinateurs PC1, PC2 et PC5 :
+🔹 PC1 : 10.10.4.1/16
+Adresse de réseau : 10.10.0.0/16
+Première adresse disponible : 10.10.0.1
+Dernière adresse disponible : 10.10.255.254
+Adresse de diffusion (broadcast) : 10.10.255.255
+🔹 PC2 : 10.11.80.2/16
+Adresse de réseau : 10.11.0.0/16
+Première adresse disponible : 10.11.0.1
+Dernière adresse disponible : 10.11.255.254
+Adresse de diffusion (broadcast) : 10.11.255.255
+🔹 PC5 : 10.10.4.7/15
+/15 → Masque : 255.254.0.0
+Plage du réseau /15 pour 10.10.x.x : 10.10.0.0 – 10.11.255.255
+Adresse de réseau : 10.10.0.0/15
+Première adresse disponible : 10.10.0.1
+Dernière adresse disponible : 10.11.255.254
+Adresse de diffusion (broadcast) : 10.11.255.255
+Q.3.7 Quels ordinateurs peuvent communiquer entre eux ?
+🔗 Communication directe (sans passerelle) :
+Deux hôtes peuvent communiquer directement s'ils appartiennent au même réseau (même adresse réseau + même masque).
+
+PC1 (10.10.4.1/16) et PC5 (10.10.4.7/15) ✔️
+✅ Oui, car 10.10.4.1/16 appartient à 10.10.0.0/16, qui est inclus dans 10.10.0.0/15 (PC5).
+PC1 et PC2 (10.11.80.2/16) ❌
+🚫 Non, car PC1 est dans 10.10.0.0/16 tandis que PC2 est dans 10.11.0.0/16.
+PC2 et PC5 ✔️
+✅ Oui, car 10.10.0.0/15 englobe les adresses de PC2 et PC5.
+PC3 (10.10.80.3/16), PC4 (10.10.4.2/16), PC1 et PC5 ✔️
+✅ Oui, tous ces PC partagent des plages compatibles dans le réseau 10.10.0.0/15.
+Résumé de la communication directe :
+Groupe 1 (peuvent communiquer sans routeur) : PC1, PC3, PC4, PC5
+Groupe 2 : PC2 (isolé sans passerelle)
+Q.3.8 Qui peut atteindre le réseau 172.16.5.0/24 ?
+Pour atteindre un réseau externe (172.16.5.0/24 ici), les PC doivent pouvoir envoyer leurs paquets à la passerelle (10.10.255.254).
+
+Tous les PC peuvent théoriquement atteindre le réseau externe via le routeur B, si leur passerelle par défaut est correctement configurée :
+PC1, PC3, PC4, PC5 : ✅ Oui
+PC2 : ✅ Oui (malgré qu'il soit dans un sous-réseau différent, le routeur gère l’acheminement inter-sous-réseaux)
+Q.3.9 Incidence si on intervertit les ports de connexion de PC2 et PC3 sur le matériel A ?
+Le matériel A est un switch, qui fonctionne principalement sur la couche 2 (MAC address).
+
+Conséquences :
+Aucune incidence sur la connectivité IP. Les PC conserveront leurs adresses IP et leur appartenance au réseau initial.
+Le switch mettra simplement à jour sa table d’adresses MAC pour associer la bonne adresse MAC au bon port.
+Conclusion : Pas d’impact sur la communication réseau.
+
