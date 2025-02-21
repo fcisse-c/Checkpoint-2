@@ -47,6 +47,7 @@ ipconfig /all sur le client:
 # Exercice 2 : Débogage de script PowerShell 
 
 Exercice 3 : Vérification d'une infrastructure réseau
+
 Q.3.1 Quel est le matériel réseau A ?
 Le matériel réseau A est un switch (commutateur).
 
@@ -63,6 +64,7 @@ Il connecte le réseau local (10.10.0.0/16) aux réseaux extérieurs (par exempl
 Il effectue le routage des paquets en choisissant le meilleur chemin pour atteindre un réseau de destination.
 Il fonctionne sur la couche 3 (réseau) du modèle OSI en utilisant les adresses IP.
 Il gère la passerelle par défaut pour permettre la communication inter-réseaux.
+
 Q.3.3 Que signifie f0/0 et g1/0 sur l’élément B ?
 Ce sont des noms d'interfaces réseau sur le routeur :
 
@@ -75,3 +77,22 @@ g1/0 :
 g signifie GigabitEthernet, une interface Ethernet avec un débit de 1 Gbps.
 1/0 indique le module 1, port 0.
 Ces interfaces permettent au routeur de connecter différents réseaux physiques ou logiques.
+
+Q.3.4 Pour l'ordinateur PC2, que représente /16 dans son adresse IP ?
+PC2 a l’adresse 10.11.80.2/16.
+
+Le /16 est la notation CIDR (Classless Inter-Domain Routing), qui indique la longueur du masque de sous-réseau.
+/16 signifie que les 16 premiers bits de l’adresse IP représentent la partie réseau.
+En notation décimale, cela correspond à un masque :
+255.255.0.0
+
+Cela implique que tous les appareils dont les 16 premiers bits de l’adresse IP sont identiques (ici 10.11.x.x) appartiennent au même sous-réseau.
+
+Q.3.5 Pour ce même ordinateur, que représente l'adresse 10.10.255.254 ?
+L’adresse 10.10.255.254 représente la passerelle par défaut (default gateway) de PC2.
+
+Rôle de la passerelle par défaut :
+C’est l’adresse IP du routeur (B) sur le réseau local.
+Elle permet à PC2 d’envoyer des paquets vers d’autres réseaux, notamment Internet ou d’autres sous-réseaux (comme 172.16.5.0/24).
+Lorsque PC2 veut communiquer avec une adresse IP en dehors de son réseau (10.11.0.0/16), il transmet ses paquets à cette adresse, et le routeur se charge du routage vers la destination appropriée.
+
