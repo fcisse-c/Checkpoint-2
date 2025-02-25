@@ -72,6 +72,33 @@ Import-Csv -Path $csvPath | ForEach-Object {
 }
 ```
 
+## Q.2.3 — Utilisation du champ Description
+Problème : Le champ Description du CSV était ignoré.
+Correction : Ajout du paramètre -Description dans New-LocalUser.
+```powershell
+New-LocalUser -Name $Name `
+               -Password (ConvertTo-SecureString $Password -AsPlainText -Force) `
+               -Description $Description `
+               -PasswordNeverExpires $true
+```
+
+Q.2.4 — Importation uniquement des champs nécessaires
+Problème : Tous les champs du CSV étaient importés, même ceux non utilisés.
+Correction : Sélection des champs pertinents uniquement.
+```powershell
+Import-Csv -Path $csvPath | Select-Object Prenom, Nom, Description | ForEach-Object {
+    Add-LocalUser -Prenom $_.Prenom -Nom $_.Nom -Description $_.Description
+}
+
+```
+Q.2.5 — Affichage du mot de passe généré
+Problème : Le mot de passe n'était pas affiché.
+Correction : Affichage du mot de passe lors de la création.
+```powershell
+Write-Output "Création de l'utilisateur $Name avec le mot de passe : $Password"
+Log "Création de l'utilisateur $Name avec le mot de passe : $Password"
+```
+
 # Exercice 3 : Vérification d'une infrastructure réseau
 
 Q.3.1 Quel est le matériel réseau A ?
