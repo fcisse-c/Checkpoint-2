@@ -62,7 +62,7 @@ if (Test-Path $scriptPath) {
 
 
 
-##  Q.2.2 — Prise en compte du premier utilisateur dans Users.csv
+Q.2.2 — Prise en compte du premier utilisateur dans Users.csv
 Problème : Le premier utilisateur n'était pas pris en compte.
 Correction : Import-Csv lit désormais toutes les lignes, sans sauter la première.
 
@@ -72,7 +72,7 @@ Import-Csv -Path $csvPath | ForEach-Object {
 }
 ```
 
-## Q.2.3 — Utilisation du champ Description
+Q.2.3 — Utilisation du champ Description
 Problème : Le champ Description du CSV était ignoré.
 Correction : Ajout du paramètre -Description dans New-LocalUser.
 ```powershell
