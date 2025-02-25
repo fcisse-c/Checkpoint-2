@@ -46,11 +46,21 @@ ipconfig /all sur le client:
 
 
 # Exercice 2 : Débogage de script PowerShell 
-## Q.2.1 — Exécution de AddLocalUsers.ps1
+Q.2.1 
 Problème : Le script AddLocalUsers.ps1 ne s'exécutait pas.
-Correction : Utilisation du chemin dans le fichier n'etait pas bon, le bon chemin est "C:\Scripts"
 
-![image](https://github.com/user-attachments/assets/03fedc06-a6fe-432a-b508-4cd7baa4021e)
+## Main.ps1
+## Correction: Exécute correctement AddLocalUsers.ps1
+```powershell$scriptPath = "C:\Scripts\AddLocalUsers.ps1"
+if (Test-Path $scriptPath) {
+    Write-Output "Exécution du script AddLocalUsers.ps1..."
+    . $scriptPath
+} else {
+    Write-Output "Erreur : le script AddLocalUsers.ps1 est introuvable."
+}
+```
+
+
 
 ##  Q.2.2 — Prise en compte du premier utilisateur dans Users.csv
 Problème : Le premier utilisateur n'était pas pris en compte.
