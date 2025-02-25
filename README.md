@@ -99,6 +99,56 @@ Write-Output "Création de l'utilisateur $Name avec le mot de passe : $Password"
 Log "Création de l'utilisateur $Name avec le mot de passe : $Password"
 ```
 
+Q.2.6 — Journalisation avec la fonction 
+Problème : Les actions n'étaient pas journalisées.
+Correction : Ajout d'appels à la fonction Log pour chaque action importante.
+```powershell
+function Log {
+    param ([string]$Message)
+    $logPath = Join-Path -Path (Split-Path -Parent $MyInvocation.MyCommand.Definition) -ChildPath "script_log.txt"
+    "$((Get-Date).ToString(\"yyyy-MM-dd HH:mm:ss\")): $Message" | Out-File -FilePath $logPath -Append
+}
+```
+Q.2.7 — Information si l’utilisateur existe déjà
+Problème : Si l'utilisateur existait, aucune indication n'était donnée.
+Correction : Ajout d'un message et journalisation.
+```powershell
+if (Get-LocalUser -Name $Name -ErrorAction SilentlyContinue) {
+    Write-Output "L'utilisateur $Name existe déjà."
+    Log "L'utilisateur $Name existe déjà."
+}
+```
+Q.2.8 — Correction de l’ajout dans le groupe Users
+Problème : L'ajout des utilisateurs dans le groupe Users échouait.
+Correction : Correction avec Add-LocalGroupMember.
+```powershell
+Add-LocalGroupMember -Group "Users" -Member $Name
+Write-Output "Utilisateur $Name ajouté au groupe 'Users'."
+Log "Utilisateur $Name ajouté au groupe 'Users'."
+}
+```
+
+ Q.2.9 — Utilisation d’une variable $Name
+Problème : La chaîne "$Prenom.$Nom" était répétée.
+Correction : Création d'une variable $Name.
+```powershell
+$Name = "$Prenom.$Nom"
+```
+Q.2.10 — Mot de passe non expirant
+Problème : Le mot de passe expirait.
+Correction : Ajout de -PasswordNeverExpires $true.
+```powershell
+New-LocalUser -Name $Name -Password (ConvertTo-SecureString $Password -AsPlainText -Force) `
+               -Description $Description -PasswordNeverExpires $true
+
+```
+Q.2.11 — Mot de passe à 10 caractères
+Problème : Le mot de passe n’avait que 6 caractères.
+Correction : Génération d’un mot de passe de 10 caractères aléatoires.
+```powershell
+$Password = ([char[]](65..90 + 97..122 + 48..57) | Get-Random -Count 10) -join ""
+```
+
 # Exercice 3 : Vérification d'une infrastructure réseau
 
 Q.3.1 Quel est le matériel réseau A ?
