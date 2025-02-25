@@ -49,6 +49,7 @@ ipconfig /all sur le client:
 ## Q.2.1 — Exécution de AddLocalUsers.ps1
 Problème : Le script AddLocalUsers.ps1 ne s'exécutait pas.
 Correction : Utilisation du chemin dans le fichier n'etait pas bon, le bon chemin est "C:\Scripts"
+
 ![image](https://github.com/user-attachments/assets/03fedc06-a6fe-432a-b508-4cd7baa4021e)
 
 # Exercice 3 : Vérification d'une infrastructure réseau
