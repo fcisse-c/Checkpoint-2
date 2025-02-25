@@ -7,7 +7,7 @@ Q.1.1 le ping avec les adresses IP des machines ne fonctionnent pas parceque :
 - Problèmes de configuration réseau : les adresses IP et les masques de sous-réseau sont correctement configurés sur les machines.
 
  -  Vérification coté serveur:
-[![pingMarchePas](https://github.com/fcisse-c/Checkpoint-2/blob/main/pingMarchePas.png)
+![pingMarchePas](https://github.com/fcisse-c/Checkpoint-2/blob/main/pingMarchePas.png)
 
  -  Vérification coté serveur:
    [![pingMarchePasCoteServeur](https://github.com/fcisse-c/Checkpoint-2/blob/main/pingMarchePasCoteServeur.png)
@@ -19,33 +19,37 @@ j'ai modifié le paramétrage DHCP sur le client
 
 Le client ne récupère pas la 1ère adresse disponible sur la plage DHCP du serveur  carCertaines adresses IP dans la plage DHCP peuvent être réservées pour des appareils spécifiques ou exclues de la distribution. Cela peut empêcher le client de récupérer la première adresse disponible
 
-[![IP_avDHCP](https://github.com/fcisse-c/Checkpoint-2/blob/main/IP_avDHCP.png)
+![IP_avDHCP](https://github.com/fcisse-c/Checkpoint-2/blob/main/IP_avDHCP.png)
 
 
 - Ping coté serveur:
 - 
-[![pingMarcheCoteServeur](https://github.com/fcisse-c/Checkpoint-2/blob/main/pingMarcheCoteServeur.png)
+![pingMarcheCoteServeur](https://github.com/fcisse-c/Checkpoint-2/blob/main/pingMarcheCoteServeur.png)
 
 
 - Ping coté client:
   
-[![pingMarcheCoteClient](https://github.com/fcisse-c/Checkpoint-2/blob/main/pingMarcheCoteClient.png)
+![pingMarcheCoteClient](https://github.com/fcisse-c/Checkpoint-2/blob/main/pingMarcheCoteClient.png)
 
 Q.1.4 Oui le client peut avoir l'adresse IP 172.16.10.15 en DHCP 
 Voici les manipulations à faire :
 
-[![creation_reservation](https://github.com/fcisse-c/Checkpoint-2/blob/main/creation_reservation.png)
+![creation_reservation](https://github.com/fcisse-c/Checkpoint-2/blob/main/creation_reservation.png)
 
 J'ai Configuré le client pour utiliser DHCP  en Ouvrant l'invite de commandes et tapant ipconfig /release suivi de ipconfig /renew pour obtenir une nouvelle adresse IP du serveur DHCP.
 
-[![IPconfig_re](https://github.com/fcisse-c/Checkpoint-2/blob/main/IPconfig_re.png)
+![IPconfig_re](https://github.com/fcisse-c/Checkpoint-2/blob/main/IPconfig_re.png)
 
 ipconfig /all sur le client:
 
-[![IPconfig_all](https://github.com/fcisse-c/Checkpoint-2/blob/main/IPconfig_all.png)
+![IPconfig_all](https://github.com/fcisse-c/Checkpoint-2/blob/main/IPconfig_all.png)
 
 
-
+# Exercice 2 : Débogage de script PowerShell 
+## Q.2.1 — Exécution de AddLocalUsers.ps1
+Problème : Le script AddLocalUsers.ps1 ne s'exécutait pas.
+Correction : Utilisation du chemin dans le fichier n'etait pas bon, le bon chemin est "C:\Scripts"
+![image](https://github.com/user-attachments/assets/03fedc06-a6fe-432a-b508-4cd7baa4021e)
 
 # Exercice 3 : Vérification d'une infrastructure réseau
 
