@@ -52,6 +52,14 @@ Correction : Utilisation du chemin dans le fichier n'etait pas bon, le bon chemi
 
 ![image](https://github.com/user-attachments/assets/03fedc06-a6fe-432a-b508-4cd7baa4021e)
 
+##  Q.2.2 — Prise en compte du premier utilisateur dans Users.csv
+Problème : Le premier utilisateur n'était pas pris en compte.
+Correction : Import-Csv lit désormais toutes les lignes, sans sauter la première.
+
+Import-Csv -Path $csvPath | ForEach-Object {
+    Add-LocalUser -Prenom $_.Prenom -Nom $_.Nom -Description $_.Description
+}
+
 # Exercice 3 : Vérification d'une infrastructure réseau
 
 Q.3.1 Quel est le matériel réseau A ?
