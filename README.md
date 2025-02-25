@@ -56,9 +56,11 @@ Correction : Utilisation du chemin dans le fichier n'etait pas bon, le bon chemi
 Problème : Le premier utilisateur n'était pas pris en compte.
 Correction : Import-Csv lit désormais toutes les lignes, sans sauter la première.
 
+```powershell
 Import-Csv -Path $csvPath | ForEach-Object {
     Add-LocalUser -Prenom $_.Prenom -Nom $_.Nom -Description $_.Description
 }
+```
 
 # Exercice 3 : Vérification d'une infrastructure réseau
 
